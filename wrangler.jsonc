@@ -18,6 +18,13 @@
   ],
   "compatibility_flags": [
     "nodejs_compat"
+  ],
+  "routes": [
+    {
+      "pattern": "seed.stomp.zone",
+      "custom_domain": true
+    
+    }
   ]
     /**
    * Smart Placement

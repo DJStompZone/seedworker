@@ -45,7 +45,7 @@ export default {
 			return new Response('Method not allowed', { status: 405 });
 		}
 
-		const fullHtml = handleMainPage(kv);
+		const fullHtml = await handleMainPage(kv);
 		return new Response(fullHtml, {
 			headers: { 'Content-Type': 'text/html' },
 		});

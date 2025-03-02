@@ -3,7 +3,7 @@ function sanitize(str) {
 }
 
 function escapeHtml(unsafe) {
-  return unsafe.toString()
+  return !unsafe ? '' : `${unsafe}`.toString()
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
@@ -11,5 +11,10 @@ function escapeHtml(unsafe) {
     .replace(/'/g, "&#039;")
 }
 
+// Validate timestamp
+function validateTimestamp(timestamp) {
+  return !isNaN(timestamp) && timestamp > 0 && timestamp < Date.now();
+}
 module.exports.escapeHtml = escapeHtml;
 module.exports.sanitize = sanitize;
+module.exports.validateTimestamp = validateTimestamp;

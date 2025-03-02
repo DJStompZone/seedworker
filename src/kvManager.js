@@ -1,4 +1,5 @@
-const { SEEDS_KEY, COMMENT_PREFIX, RATE_LIMIT_PREFIX } = require('./constants');
+const { COMMENT_PREFIX, RATE_LIMIT_PREFIX } = require('./constants');
+const { validateTimestamp } = require('./utilities');
 
 class KVManager {
   constructor(kvNamespace) {
@@ -17,6 +18,7 @@ class KVManager {
         return await this.kv.get(name, 'json');
       })
     );
+    comments.filter(ea => validateTimestamp(ea.timestamp));
     return comments.sort((a, b) => b.timestamp - a.timestamp);
   }
 
