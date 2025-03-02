@@ -3,9 +3,11 @@ const CommentManager = require('./commentManager');
 const KVManager = require('./kvManager');
 const { escapeHtml } = require('./utilities');
 const { SEEDS, SEEDS_KEY } = require('./constants');
+const dotenv = require('dotenv');
+dotenv.config();
 
-async function handleRequest(request, env) {
-  const kv = new KVManager(env.COMMENTS_KV);
+async function fetch(request, env, ctx) {
+  const kv = new KVManager(env.KV_BINDING);
   const url = new URL(request.url);
 
   // Initialize seeds if not exists
