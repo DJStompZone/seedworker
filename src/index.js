@@ -53,3 +53,5 @@ async function handleMainPage(kv) {
     headers: { 'Content-Type': 'text/html' }
   });
 }
+
+export default fetch;
