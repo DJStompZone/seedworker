@@ -15,6 +15,9 @@
       "binding": "SEEDS_KV",
       "id": "dffeca4b2be54babbc13e980267eba81"
     }
+  ],
+  "compatibility_flags": [
+    "nodejs_compat"
   ]
     /**
    * Smart Placement
