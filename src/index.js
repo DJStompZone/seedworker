@@ -26,7 +26,7 @@ async function handleMainPage(kv) {
 
 export default {
 	async fetch(request, env, ctx) {
-		const kv = new KVManager(env.KV_BINDING);
+		const kv = new KVManager(env.SEEDS_KVS);
 		const url = new URL(request.url);
 
 		// Initialize seeds if not exists

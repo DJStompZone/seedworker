@@ -6,7 +6,7 @@ class KVManager {
   }
 
   async getSeeds() {
-    const seeds = await this.kv.get(SEEDS_KEY, 'json');
+    const seeds = await this.kv.get("seeds", 'json');
     return seeds || [];
   }
 
@@ -14,7 +14,7 @@ class KVManager {
     const { keys } = await this.kv.list({ prefix: COMMENT_PREFIX });
     const comments = await Promise.all(
       keys.map(async ({ name }) => {
-        return this.kv.get(name, 'json');
+        return await this.kv.get(name, 'json');
       })
     );
     return comments.sort((a, b) => b.timestamp - a.timestamp);
